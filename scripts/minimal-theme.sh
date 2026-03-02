@@ -59,7 +59,7 @@ apply_minimal_theme() {
 #[fg=$inactive_color]│ \
 #[fg=$accent_color]$icon_memory #[fg=$text_color]#(~/.tmux/plugins/tmux-cpu/scripts/cpu_percentage.sh) \
 #[fg=$inactive_color]│ \
-#[fg=$accent_color]$icon_date #[fg=$text_color]#(date +"%d %b %Y") \
+#[fg=$accent_color]$icon_date #[fg=$text_color]#(date +%d) \
 #[fg=$inactive_color]│ \
 #[fg=$accent_color]$icon_clock #[fg=$text_color]#(date +%H:%M) \
 #[fg=$inactive_color]│ \
