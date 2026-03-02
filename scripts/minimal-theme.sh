@@ -53,17 +53,17 @@ apply_minimal_theme() {
     # Status left (session name)
     tmux set-option -g status-left "#[fg=$accent_color,bold]$icon_session  #S #[fg=$inactive_color]│ "
 
-    # Status right with system info
+    # Status right with system info (macOS compatible)
     local status_right="\
 #[fg=$accent_color]$icon_dir #[fg=$text_color]#([ #{pane_current_path} = \$HOME ] && echo '~' || basename #{pane_current_path}) \
 #[fg=$inactive_color]│ \
-#[fg=$accent_color]$icon_memory #[fg=$text_color]#(free | awk '/^Mem/ { printf(\"%.0f%%\", \$3/\$2 * 100 - 0.5) }' ) \
+#[fg=$accent_color]$icon_memory #[fg=$text_color]#(~/.tmux/plugins/tmux-cpu/scripts/cpu_percentage.sh) \
 #[fg=$inactive_color]│ \
-#[fg=$accent_color]$icon_date #[fg=$text_color]#(date +%d) \
+#[fg=$accent_color]$icon_date #[fg=$text_color]#(date +"%d %b %Y") \
 #[fg=$inactive_color]│ \
 #[fg=$accent_color]$icon_clock #[fg=$text_color]#(date +%H:%M) \
 #[fg=$inactive_color]│ \
-#[fg=$accent_color]$icon_battery #[fg=$text_color]#(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null || echo 'N/A')% "
+#[fg=$accent_color]$icon_battery #[fg=$text_color]#(~/.tmux/plugins/tmux-battery/scripts/battery_percentage.sh) "
 
     tmux set-option -g status-right "$status_right"
 
